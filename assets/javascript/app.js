@@ -31,18 +31,18 @@ $("#startQuiz").on("click", function(){
 
 //This is going to generate our page
    for (var i = 0; i < quiz.length; i++) {
-     var newDiv1 = $("<div>")
-      newDiv1.text(quiz[i].question)
-     
+     var newDiv1 = $("<div>");
+      newDiv1.text(quiz[i].question);
+      $("#maincontent").append(newDiv1);
      for (var j = 0; j < quiz[i].answers.length; j++) {
       
-      var newbtn2 = $("<input type= radio>");
-      newbtn2.append(quiz[i].answers[j]);
+      var btn = $("<label><input type=radio>");
+      btn.append(quiz[i].answers[j]);
       console.log(quiz[i].answers[j]);
-
+      $("#maincontent").append(btn);
      }
-    $("#maincontent").append(newDiv1);
-    $("#maincontent").append(newbtn2);
+    
+    
    }
 
    
