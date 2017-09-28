@@ -11,12 +11,12 @@ correct:"answer1"},
 answers:[" answer1 of 3 "," answer2 of 3 "," answer3 of 3 "],
 correct:"answer1"},
 ]
-
+$("#sub").hide();
 //When startQuiz button is clicked it will replace the button with the form content and start the timer.
 $("#startQuiz").on("click", function(){
   document.getElementById("quizButton").innerHTML= "";
   
-    var counter = 10 //Adjust this to increase or decrease time
+    var counter = 1000 //Adjust this to increase or decrease time
     setInterval(function(){
       counter --;
         if(counter >= 0){
@@ -30,18 +30,22 @@ $("#startQuiz").on("click", function(){
    console.log("This function is working, don't mess with it."); 
 
 //This is going to generate our page
+//This for loop generates the questions
    for (var i = 0; i < quiz.length; i++) {
      var newDiv1 = $("<div>");
       newDiv1.text(quiz[i].question);
       $("#maincontent").append(newDiv1);
+//This for loop generates the answers   
      for (var j = 0; j < quiz[i].answers.length; j++) {
-      
-      var btn = $("<label><input type=radio>");
-      btn.append(quiz[i].answers[j]);
-      console.log(quiz[i].answers[j]);
-      $("#maincontent").append(btn);
+        var btn = $("<label><input type=radio name=ans" + i + " value=answer" + i +">");
+        btn.append(quiz[i].answers[j]);
+        console.log(quiz[i].answers[j]);
+        $("#maincontent").append(btn);
+        console.log(btn)
+        $("#sub").show();
      }
-    
+
+  //Conditions   
     
    }
 
