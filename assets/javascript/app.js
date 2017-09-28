@@ -1,14 +1,14 @@
 var quiz = [
 {question: "This is question one",
-answers:["answer1","answer2","answer3"],
+answers:[" answer1 of 1 "," answer2 of 1 "," answer3 of 1 "],
 correct:"answer1"},
 
 {question: "This is question two",
-answers:["answer1","answer2","answer3"],
+answers:[" answer1 of 2 "," answer2 of 2 "," answer3 of 2 "],
 correct:"answer1"},
 
 {question: "This is question three",
-answers:["answer1","answer2","answer3"],
+answers:[" answer1 of 3 "," answer2 of 3 "," answer3 of 3 "],
 correct:"answer1"},
 ]
 
@@ -33,13 +33,16 @@ $("#startQuiz").on("click", function(){
    for (var i = 0; i < quiz.length; i++) {
      var newDiv1 = $("<div>")
       newDiv1.text(quiz[i].question)
+     
      for (var j = 0; j < quiz[i].answers.length; j++) {
-      newDiv2 = $("<div>")
-      newDiv2.append(quiz[i].answers);
+      
+      var newbtn2 = $("<input type= radio>");
+      newbtn2.append(quiz[i].answers[j]);
+      console.log(quiz[i].answers[j]);
 
      }
     $("#maincontent").append(newDiv1);
-    $("#maincontent").append(newDiv2);
+    $("#maincontent").append(newbtn2);
    }
 
    
