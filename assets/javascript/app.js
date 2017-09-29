@@ -1,15 +1,15 @@
 var quiz = [
 {question: "This is question one",
 answers:[" answer1 of 1 "," answer2 of 1 "," answer3 of 1 "],
-correct:"answer1"},
+correct:"answer1 of 1"},
 
 {question: "This is question two",
 answers:[" answer1 of 2 "," answer2 of 2 "," answer3 of 2 "],
-correct:"answer1"},
+correct:"answer2 of 2"},
 
 {question: "This is question three",
 answers:[" answer1 of 3 "," answer2 of 3 "," answer3 of 3 "],
-correct:"answer1"},
+correct:"answer3 of 3"},
 ]
 $("#sub").hide();
 //When startQuiz button is clicked it will replace the button with the form content and start the timer.
@@ -37,34 +37,52 @@ $("#startQuiz").on("click", function(){
       $("#maincontent").append(newDiv1);
 //This for loop generates the answers   
      for (var j = 0; j < quiz[i].answers.length; j++) {
-        var btn = $("<label><input type=radio name=ans" + i + " value=answer" + i +">");
+        var btn = $("<label><input id=rad" + i + " type=radio name=ans" + i + " value=" + j + ">");
         btn.append(quiz[i].answers[j]);
         console.log(quiz[i].answers[j]);
+        console.log(btn);
         $("#maincontent").append(btn);
         console.log(btn)
         $("#sub").show();
-     }
+      } 
+    }
+})  
 
-  //Conditions   
+//----------------------------Dont Touch Above This----------------------------------------------      
+
+
+
+//Find the selected answer and store it.
+
+for(var i = 0; i < quiz[i].length; i++) {
     
-   }
+    quiz[i].answers[j].onclick = function() {
+      
+    console.log(this.value);
+    }
+// -------------------------<input> values----------------------------------------
+//The name starts at ans0
+//The value starts at answer0
+//The id starts at rad0
+//
+var uGuess = ""; //This variable will store the user input
+var cGuess = 0;//This track correct answers
+var iGuess = 0;//This will track incorrect answers
 
-   
+//For each question. This will be behind the scenes and will not run until timer runs out or user hits submit.
+  if(uGuess===quiz[i].correct){
+    cGuess++
+  }else if(uGuess!==quiz[i].correct)
+    iGuess++    
 
-})
-
-
-//true or false questions
-//questions will be a variable.
-//answers will be a variable.
-
+//-------------------------------------Dont Touch Below This----------------------------------------------
 $("#submit").on("click", function(){
   console.log("Im working");
   //When startQuiz button is clicked it will replace the button with the form content.
   document.getElementById("maincontent").innerHTML= "";
   $("#maincontent").hide();
   $("#scorecard").show();
-})
+});
 
 
 
