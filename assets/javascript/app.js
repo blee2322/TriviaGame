@@ -11,7 +11,7 @@ correct:"answer2 of 2"},
 answers:[" answer1 of 3 "," answer2 of 3 "," answer3 of 3 "],
 correct:"answer3 of 3"},
 ]
-$("#sub").hide();
+$("#subtn").hide();
 //When startQuiz button is clicked it will replace the button with the form content and start the timer.
 $("#startQuiz").on("click", function(){
   document.getElementById("quizButton").innerHTML= "";
@@ -43,45 +43,25 @@ $("#startQuiz").on("click", function(){
         console.log(btn);
         $("#maincontent").append(btn);
         console.log(btn)
-        $("#sub").show();
+        $("#subtn").show();
       } 
     }
-})  
+ 
 
 //----------------------------Dont Touch Above This----------------------------------------------      
 
-
-
-//Find the selected answer and store it.
-
-// for(var i = 0; i < quiz[i].length; i++) {
-    
-//     quiz[i].answers[j].onclick = function() {
-      
-//     console.log(this.value);
-//     }
-// // -------------------------<input> values----------------------------------------
-// //The name starts at ans0
-// //The value starts at answer0
-// //The id starts at rad0
-// //
-// var uGuess = ""; //This variable will store the user input
-// var cGuess = 0;//This track correct answers
-// var iGuess = 0;//This will track incorrect answers
-
-// //For each question. This will be behind the scenes and will not run until timer runs out or user hits submit.
-//   if(uGuess===quiz[i].correct){
-//     cGuess++
-//   }else if(uGuess!==quiz[i].correct)
-//     iGuess++    
-
 //-------------------------------------Dont Touch Below This----------------------------------------------
-$("#submit").on("click", function(){
-  console.log("Im working");
-  //When startQuiz button is clicked it will replace the button with the form content.
-  document.getElementById("maincontent").innerHTML= "";
-  $("#maincontent").hide();
-  $("#scorecard").show();
+  $("#subtn").on("click", function (){
+    var tot = 0
+    var score = 0 
+    var quest1 = document.forms["mainform"]["ans0"].value; 
+    var quest2 = document.forms["mainform"]["ans1"].value;
+    var quest3 = document.forms["mainform"]["ans2"].value;
+    alert(quest2);
+      //When startQuiz button is clicked it will replace the button with the form content.
+      $("#maincontent").hide();
+      $("#scorecard").show();
+  })
 });
 
 
