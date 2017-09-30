@@ -12,6 +12,7 @@ answers:[" answer1 of 3 "," answer2 of 3 "," answer3 of 3 "],
 correct:"answer3 of 3"},
 ]
 $("#subtn").hide();
+$("#scorecard").hide();
 //When startQuiz button is clicked it will replace the button with the form content and start the timer.
 $("#startQuiz").on("click", function(){
   document.getElementById("quizButton").innerHTML= "";
@@ -50,27 +51,41 @@ $("#startQuiz").on("click", function(){
 
 //----------------------------Dont Touch Above This----------------------------------------------      
 
-//-------------------------------------Dont Touch Below This----------------------------------------------
+
   $("#subtn").on("click", function (){
     //Here we are getting user input
-    var tot = 3
+    var totans = 3
     var cGuess = 0 
     var quest1 = document.forms["mainform"]["ans0"].value; 
     var quest2 = document.forms["mainform"]["ans1"].value;
     var quest3 = document.forms["mainform"]["ans2"].value;
-    //Conditions for button to submit
-    for(var a = 1; a <= tot; a++) {
+    var cAns = ["answer1 of 1", "answer2 of 2", "answer3 of 3"];
+    console.log(quest1);
+
+    //Conditions for button to submit. This will make sure that all buttons are answered before submission is valid
+    for(var a = 1; a <= totans; a++) {
       if(eval("quest" + a) === null || eval("quest" + a) === "") {
-        alert("you missed question" + a);
+        console.log("you missed question" + a);
         return false;
 
       }
     }
-      
-      //When startQuiz button is clicked it will replace the button with the form content.
-      $("#maincontent").hide();
-      $("#scorecard").show();
+
+    //Compare user selection with answers
+
+    for(var a = 1; a <= totans; a++) {
+      if(eval("quest" + a)=== cAns[a-1]){
+        cGuess++
+        console.log(cGuess);
+      }
+    }
+    
+    $("#maincontent").hide();
+    $("#scorecard").show();
+    return false;
   })
+ 
+
 });
 
 
