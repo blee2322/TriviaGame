@@ -52,12 +52,21 @@ $("#startQuiz").on("click", function(){
 
 //-------------------------------------Dont Touch Below This----------------------------------------------
   $("#subtn").on("click", function (){
-    var tot = 0
-    var score = 0 
+    //Here we are getting user input
+    var tot = 3
+    var cGuess = 0 
     var quest1 = document.forms["mainform"]["ans0"].value; 
     var quest2 = document.forms["mainform"]["ans1"].value;
     var quest3 = document.forms["mainform"]["ans2"].value;
-    alert(quest2);
+    //Conditions for button to submit
+    for(var a = 1; a <= tot; a++) {
+      if(eval("quest" + a) === null || eval("quest" + a) === "") {
+        alert("you missed question" + a);
+        return false;
+
+      }
+    }
+      
       //When startQuiz button is clicked it will replace the button with the form content.
       $("#maincontent").hide();
       $("#scorecard").show();
