@@ -24,8 +24,9 @@ $("#startQuiz").on("click", function(){
           document.getElementById("timer").innerHTML = counter;
         }
         if(counter === 0){
-          clearInterval(counter);
-          alert(Your Time is Up!)
+          clearInterval(co);
+          alert("Your Time is Up!");
+          $("#mainform").hide();
         }
     }, 1000);
    console.log("This function is working, don't mess with it."); 
@@ -62,6 +63,7 @@ $("#startQuiz").on("click", function(){
     var quest3 = document.forms["mainform"]["ans2"].value;
     var cAns = ["0", "1", "2"];
     console.log(quest1);
+    clearInterval(counter);
 
     //Conditions for button to submit. This will make sure that all buttons are answered before submission is valid
     for(var a = 1; a <= totans; a++) {
@@ -83,14 +85,13 @@ $("#startQuiz").on("click", function(){
       }
     
     $("#maincontent").hide();
+    $("#timer").hide();
     $("#scorecard").show();
     $("#correct").html("Your number of correct answers: " + cGuess);
     $("#incorrect").html("Your number of incorrect answers: " + iGuess);
     return false;
+
   })
-  
-
-
 });
 
 
