@@ -1,14 +1,14 @@
 var quiz = [
-{question: "This is question one",
-answers:[" answer1 of 1 "," answer2 of 1 "," answer3 of 1 "],
+{question: "If you cast 6 spells before casting Mind's Desire, how many copies do you get?",
+answers:[" 6 "," 7 "," 4 "],
 correct:"answer1 of 1"},
 
-{question: "This is question two",
-answers:[" answer1 of 2 "," answer2 of 2 "," answer3 of 2 "],
+{question: "What is the converted mana cost of the spell Force of Will?",
+answers:[" 5 "," 3 "," 0 "],
 correct:"answer2 of 2"},
 
-{question: "This is question three",
-answers:[" answer1 of 3 "," answer2 of 3 "," answer3 of 3 "],
+{question: "How many tokens do you get if cast the spell Rite of Replication with Kicker?",
+answers:[" 5 "," 6 "," 8 "],
 correct:"answer3 of 3"},
 ]
 function calcTot() {
@@ -119,6 +119,7 @@ $("#startQuiz").on("click", function(){
       $("#scorecard").show();
       $("#correct").html("Your number of correct answers: " + cGuess);
       $("#incorrect").html("Your number of incorrect answers: " + iGuess);
+      return false;
 
   });
 
