@@ -1,0 +1,40 @@
+body{
+  background-image: url("../images/big_guy.jpg");
+}
+header{
+  text-align: center;
+  margin-top: 25px;
+}
+h1{
+  margin-top: 20px;
+  font-size: 35px;
+  font-weight: bold;
+}
+#timer{
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+  font-size:35px;
+}
+h2{
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 35px;
+}
+#quizButton{
+  text-align: center;
+  margin-top: 20px;
+}
+#maincontent{
+  color: white;
+  text-align: center;
+  margin-top: 40px;
+}
+#subtn{
+  margin-bottom:40px;
+  margin-top: 40px;
+}
+#scorecard{
+  text-align: center;
+}

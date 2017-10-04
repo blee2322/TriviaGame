@@ -47,14 +47,13 @@ $("#scorecard").hide();
 $("#startQuiz").on("click", function(){
   document.getElementById("quizButton").innerHTML= "";
   
-    var counter = 10 //Adjust this to increase or decrease time
+    var counter = 20 //Adjust this to increase or decrease time
     setInterval(function(){
       counter --;
         if(counter >= 0){
           document.getElementById("timer").innerHTML = counter;
         }
         if(counter === 0){
-          alert("Your Time is Up!");
           calcTot();
          }
     }, 1000);
