@@ -23,15 +23,6 @@ function calcTot() {
       console.log(quest1);
       clearInterval();
 
-      //Conditions for button to submit. This will make sure that all buttons are answered before submission is valid
-      // for(var a = 1; a <= totans; a++) {
-      //   if(eval("quest" + a) === null || eval("quest" + a) === "") {
-      //     console.log("you missed question" + a);
-      //     return false;
-
-      //   }
-      // }
-
       //Compare user selection with answers
 
       for(var a = 1; a <= totans; a++) {
@@ -128,7 +119,7 @@ $("#startQuiz").on("click", function(){
       $("#scorecard").show();
       $("#correct").html("Your number of correct answers: " + cGuess);
       $("#incorrect").html("Your number of incorrect answers: " + iGuess);
-    
+
   });
 
 
