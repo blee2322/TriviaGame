@@ -11,6 +11,45 @@ correct:"answer2 of 2"},
 answers:[" answer1 of 3 "," answer2 of 3 "," answer3 of 3 "],
 correct:"answer3 of 3"},
 ]
+function calcTot() {
+
+      var totans = 3
+      var cGuess = 0 
+      var iGuess = 0
+      var quest1 = document.forms["mainform"]["ans0"].value; 
+      var quest2 = document.forms["mainform"]["ans1"].value;
+      var quest3 = document.forms["mainform"]["ans2"].value;
+      var cAns = ["0", "1", "2"];
+      console.log(quest1);
+      clearInterval();
+
+      //Conditions for button to submit. This will make sure that all buttons are answered before submission is valid
+      // for(var a = 1; a <= totans; a++) {
+      //   if(eval("quest" + a) === null || eval("quest" + a) === "") {
+      //     console.log("you missed question" + a);
+      //     return false;
+
+      //   }
+      // }
+
+      //Compare user selection with answers
+
+      for(var a = 1; a <= totans; a++) {
+        if(eval("quest" + a) === cAns[a-1]){
+          cGuess++
+          console.log(cGuess);
+        }else if((eval("quest" + a) !== cAns[a-1]))
+          iGuess++
+        }
+      
+      $("#maincontent").hide();
+      $("#timer").hide();
+      $("#scorecard").show();
+      $("#correct").html("Your number of correct answers: " + cGuess);
+      $("#incorrect").html("Your number of incorrect answers: " + iGuess);
+}
+
+
 $("#subtn").hide();
 $("#scorecard").hide();
 //When startQuiz button is clicked it will replace the button with the form content and start the timer.
@@ -24,10 +63,9 @@ $("#startQuiz").on("click", function(){
           document.getElementById("timer").innerHTML = counter;
         }
         if(counter === 0){
-          clearInterval(co);
           alert("Your Time is Up!");
-          $("#mainform").hide();
-        }
+          calcTot();
+         }
     }, 1000);
    console.log("This function is working, don't mess with it."); 
 
@@ -48,6 +86,7 @@ $("#startQuiz").on("click", function(){
         $("#subtn").show();
       } 
     }
+})
  
 
 //----------------------------Dont Touch Above This----------------------------------------------      
@@ -55,44 +94,42 @@ $("#startQuiz").on("click", function(){
 
   $("#subtn").on("click", function (){
     //Here we are getting user input
-    var totans = 3
-    var cGuess = 0 
-    var iGuess = 0
-    var quest1 = document.forms["mainform"]["ans0"].value; 
-    var quest2 = document.forms["mainform"]["ans1"].value;
-    var quest3 = document.forms["mainform"]["ans2"].value;
-    var cAns = ["0", "1", "2"];
-    console.log(quest1);
-    clearInterval(counter);
+      var totans = 3
+      var cGuess = 0 
+      var iGuess = 0
+      var quest1 = document.forms["mainform"]["ans0"].value; 
+      var quest2 = document.forms["mainform"]["ans1"].value;
+      var quest3 = document.forms["mainform"]["ans2"].value;
+      var cAns = ["0", "1", "2"];
+      console.log(quest1);
+      clearInterval();
 
-    //Conditions for button to submit. This will make sure that all buttons are answered before submission is valid
-    for(var a = 1; a <= totans; a++) {
-      if(eval("quest" + a) === null || eval("quest" + a) === "") {
-        console.log("you missed question" + a);
-        return false;
+      //Conditions for button to submit. This will make sure that all buttons are answered before submission is valid
+      for(var a = 1; a <= totans; a++) {
+        if(eval("quest" + a) === null || eval("quest" + a) === "") {
+          console.log("you missed question" + a);
+          return false;
 
+        }
       }
-    }
 
-    //Compare user selection with answers
+      //Compare user selection with answers
 
-    for(var a = 1; a <= totans; a++) {
-      if(eval("quest" + a) === cAns[a-1]){
-        cGuess++
-        console.log(cGuess);
-      }else if((eval("quest" + a) !== cAns[a-1]))
-        iGuess++
-      }
+      for(var a = 1; a <= totans; a++) {
+        if(eval("quest" + a) === cAns[a-1]){
+          cGuess++
+          console.log(cGuess);
+        }else if((eval("quest" + a) !== cAns[a-1]))
+          iGuess++
+        }
+      
+      $("#maincontent").hide();
+      $("#timer").hide();
+      $("#scorecard").show();
+      $("#correct").html("Your number of correct answers: " + cGuess);
+      $("#incorrect").html("Your number of incorrect answers: " + iGuess);
     
-    $("#maincontent").hide();
-    $("#timer").hide();
-    $("#scorecard").show();
-    $("#correct").html("Your number of correct answers: " + cGuess);
-    $("#incorrect").html("Your number of incorrect answers: " + iGuess);
-    return false;
-
-  })
-});
+  });
 
 
 
